@@ -1,12 +1,17 @@
 version: 1
 frontend:
     phases:
+        preBuild:
+            commands:
+                - 'cd frontend/formkit'
+                - 'npm install'
         build:
             commands:
                 - 'npm run build'
     artifacts:
-        baseDirectory: /frontend/formkit/dist
+        baseDirectory: frontend/formkit/dist
         files:
             - '**/*'
     cache:
-        paths: []
+        paths:
+            - node_modules/**/*
